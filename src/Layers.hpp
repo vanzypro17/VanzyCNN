@@ -82,7 +82,7 @@ public:
         im2col(input.data, in_c, input.h, input.w, ksize, stride, pad, data_col);
         matmul_avx_omp(out_c, col_cols, col_rows, weights.data, data_col, output.data);
 
-        // Linux'ta _aligned_free yerine free kullanılır
+        
         free(data_col);
     }
 };
