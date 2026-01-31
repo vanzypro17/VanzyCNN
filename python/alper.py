@@ -5,7 +5,7 @@ import torchvision
 import torchvision.transforms as transforms
 import numpy as np
 
-# 1. Senini C++ mimarinin aynısını PyTorch'ta kuruyoruz
+
 class VanzyCNN(nn.Module):
     def __init__(self):
         super(VanzyCNN, self).__init__()
@@ -32,14 +32,14 @@ transform = transforms.Compose([
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=32, shuffle=True)
 
-# 3. Hızlıca Eğit (Sadece 1-2 epoch, "akıllanması" için yeterli)
+
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 net = VanzyCNN().to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.01, momentum=0.9)
 
 print("Eğitim başlıyor... Bu yaklaşık 1-2 dakika sürecek.")
-for epoch in range(50): # Hız için sadece 1 tur
+for epoch in range(50): 
     for i, data in enumerate(trainloader, 0):
         inputs, labels = data[0].to(device), data[1].to(device)
         optimizer.zero_grad()
