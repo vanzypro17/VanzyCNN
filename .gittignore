@@ -1,0 +1,10 @@
+# Derlenmiş programlar
+vanzy_cnn
+
+# Binary ağırlık dosyaları (Bunlar script ile üretildiği için yüklenmez)
+*.bin
+
+# Veri setleri ve geçici dosyalar
+data/
+__pycache__/
+.DS_Store
